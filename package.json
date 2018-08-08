@@ -1,6 +1,6 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
+  "name": "mn-style",
+  "version": "1.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
     "preinstall": "npm run install:config && npm run install:config:base",
@@ -18,23 +18,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/mnconfig/javascript.git"
   },
   "keywords": [
     "style guide",
     "lint",
-    "airbnb",
     "es6",
     "es2015",
     "react",
     "jsx"
   ],
-  "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "author": "Fork from airbnb",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/mnconfig/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/mnconfig/javascript",
   "devDependencies": {
     "markdownlint-cli": "^0.3.1"
   }
