@@ -441,6 +441,18 @@ module.exports = {
     'unicode-bom': ['error', 'never'],
 
     // require regex literals to be wrapped in parentheses
-    'wrap-regex': 'off'
+    'wrap-regex': 'off',
+
+    // enforce consistent line breaks inside function parentheses (function-paren-newline)
+    'function-paren-newline': ['error', { minItems: 5 }],
+
+    // Enforce the location of arrow function bodies
+    // with implicit returns (implicit-arrow-linebreak)
+    'implicit-arrow-linebreak': ['off'],
+
+    // Many style guides require a particular style for comments that span multiple lines.
+    // For example, some style guides prefer the use of a single block comment
+    // for multiline comments, whereas other style guides prefer consecutive line comments.
+    'multiline-comment-style': ['off', 'starred-block'],
   }
 };

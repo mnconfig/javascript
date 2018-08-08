@@ -288,6 +288,11 @@ module.exports = {
     'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
-    yoda: 'error'
+    yoda: 'error',
+
+    // This rule improves readability by enforcing lines between class members.
+    // It will not check empty lines before the first member and after the last member,
+    // since that is already taken care of by padded-blocks.
+    'lines-between-class-members': 'warn',
   }
 };

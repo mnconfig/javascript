@@ -202,5 +202,39 @@ module.exports = {
       allowLiteral: false,
       allowObject: false,
     }],
+
+    // dynamic imports require a leading comment with a webpackChunkName (dynamic-import-chunkname)
+    'import/dynamic-import-chunkname': ['warn', {
+      importFunctions: ['dynamicImport'],
+      webpackChunknameFormat: '[a-zA-Z0-57-9-/_]',
+    }],
+
+    // This rule enforces that all exports are declared at the bottom of the file. This rule will
+    // report any export declarations that comes before any non-export statements.
+    'import/exports-last': 'warn',
+
+    // Reports when named exports are not grouped together in a single export
+    // declaration or when multiple assignments to CommonJS module.exports or
+    // exports object are present in a single file.
+    'import/group-exports': 'warn',
+
+    // Ensures that there is no resolvable path back to this module via its dependencies.
+    'import/no-cycle': 'warn',
+
+    // Prohibit default exports. Mostly an inverse of prefer-default-export.
+    'import/no-default-export': 'off',
+
+    // This rule is useful for enforcing tree-like folder structures instead
+    // of complex graph-like folder structures. While this restriction
+    // might be a departure from Node's default resolution style, it can lead large,
+    // complex codebases to be easier to maintain. If you've ever had debates over
+    // "where to put files" this rule is for you.
+    'import/no-relative-parent-imports': 'off',
+
+    // Forbid a module from importing itself. This can sometimes happen during refactoring.
+    'import/no-self-import': 'error',
+
+    // Use this rule to prevent unnecessary path segemnts in import and require statements.
+    'import/no-useless-path-segments': 'error',
   },
 };
