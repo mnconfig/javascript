@@ -1,30 +1,30 @@
-# eslint-config-airbnb
+# eslint-config-mn
 
-[![npm version](https://badge.fury.io/js/eslint-config-airbnb.svg)](http://badge.fury.io/js/eslint-config-airbnb)
+[![npm version](https://badge.fury.io/js/eslint-config-mn.svg)](http://badge.fury.io/js/eslint-config-mn)
 
-This package provides Airbnb's .eslintrc as an extensible shared config.
+This package provides mn's .eslintrc as an extensible shared config.
 
 ## Usage
 
 We export three ESLint configurations for your usage.
 
-### eslint-config-airbnb
+### eslint-config-mn
 
-Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+Our default export contains all of our ESLint rules, including ECMAScript 6+ and React. It requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`. If you don't need React, see [eslint-config-mn-base](https://npmjs.com/eslint-config-mn-base).
 
-If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y`, and see below for npm instructions.
+If you use yarn, run `yarn add --dev eslint-config-mn-base eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y`, and see below for npm instructions.
 
 1. Install the correct versions of each package, which are listed by the command:
 
   ```sh
-  npm info "eslint-config-airbnb@latest" peerDependencies
+  npm info "eslint-config-mn@latest" peerDependencies
   ```
 
   Linux/OSX users can run
 
   ```sh
   (
-    export PKG=eslint-config-airbnb;
+    export PKG=eslint-config-mn;
     npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
   )
   ```
@@ -32,33 +32,33 @@ If you use yarn, run `yarn add --dev eslint-config-airbnb-base eslint-plugin-imp
   Which produces and runs a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev eslint-config-mn eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
   Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
 
   ```sh
   npm install -g install-peerdeps
-  install-peerdeps --dev eslint-config-airbnb
+  install-peerdeps --dev eslint-config-mn
   ```
 
   The cli will produce and run a command like:
 
   ```sh
-  npm install --save-dev eslint-config-airbnb eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
+  npm install --save-dev eslint-config-mn eslint@^#.#.# eslint-plugin-jsx-a11y@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-react@^#.#.#
   ```
 
-2. Add `"extends": "airbnb"` to your .eslintrc
+2. Add `"extends": "mn"` to your .eslintrc
 
-### eslint-config-airbnb/base
+### eslint-config-mn/base
 
-This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+This entry point is deprecated. See [eslint-config-mn-base](https://npmjs.com/eslint-config-mn-base).
 
-### eslint-config-airbnb/legacy
+### eslint-config-mn/legacy
 
-This entry point is deprecated. See [eslint-config-airbnb-base](https://npmjs.com/eslint-config-airbnb-base).
+This entry point is deprecated. See [eslint-config-mn-base](https://npmjs.com/eslint-config-mn-base).
 
-See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
+See [mn's Javascript styleguide](https://github.com/mn/javascript) and
 the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
 for more information.
 
