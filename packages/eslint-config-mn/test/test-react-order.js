@@ -21,27 +21,32 @@ function lint(text) {
   return linter.results[0];
 }
 
+// eslint-disable-next-line no-unused-vars
 function logError(res) {
+  // eslint-disable-next-line no-console
   console.log('-'.repeat(40));
   Object.keys(res).forEach((key) => {
+    // eslint-disable-next-line no-console
     console.log(key, ' => ', JSON.stringify(res[key]));
   });
+  // eslint-disable-next-line no-console
   console.log('-'.repeat(40));
 }
 
 function wrapComponent(body, props = '{}', defaultProps = '{}') {
-  return `
+  const compClass = `
 import React from 'react';
-import PropTypes from 'prop-types';
+${props === '{}' ? '' : 'import PropTypes from \'prop-types\';'}
 
 class MyComponent extends React.Component {
 /* eslint no-empty-function: 0, class-methods-use-this: 0 */
 ${body}
 }
-MyComponent.propTypes = ${props};
-MyComponent.defaultProps = ${defaultProps};
+${props === '{}' ? '' : `MyComponent.propTypes = ${props};`}
+${defaultProps === '{}' ? '' : `MyComponent.defaultProps = ${defaultProps};`}
 export default MyComponent;
 `;
+  return compClass;
 }
 
 test('validate react prop order', (t) => {
@@ -80,7 +85,6 @@ test('validate react prop order', (t) => {
     '{ isEnabled: false }');
     const result = lint(component);
 
-    logError(result);
     t.notOk(result.warningCount, 'no warnings');
     t.notOk(result.errorCount, 'no errors');
     t.deepEquals(result.messages, [], 'no messages in results');
@@ -105,7 +109,7 @@ test('validate react prop order', (t) => {
 
   t.test('order: when random method after lifecycle methods', (t) => {
     t.plan(2);
-    const result = lint(wrapComponent(`
+    const component = wrapComponent(`
   componentWillMount() {}
 
   componentDidMount() {}
@@ -121,7 +125,8 @@ test('validate react prop order', (t) => {
   renderDogs() {}
 
   render() { return <div />; }
-`));
+`);
+    const result = lint(component);
 
     t.ok(result.errorCount, 'fails');
     t.equal(result.messages[0].ruleId, 'react/sort-comp', 'fails due to sort');
