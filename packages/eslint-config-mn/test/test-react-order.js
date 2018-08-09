@@ -1,6 +1,6 @@
 import test from 'tape';
 import { CLIEngine } from 'eslint';
-import eslintrc from '../';
+import eslintrc from '..';
 import reactRules from '../rules/react';
 import reactA11yRules from '../rules/react-a11y';
 
@@ -21,14 +21,26 @@ function lint(text) {
   return linter.results[0];
 }
 
-function wrapComponent(body) {
+function logError(res) {
+  console.log('-'.repeat(40));
+  Object.keys(res).forEach((key) => {
+    console.log(key, ' => ', JSON.stringify(res[key]));
+  });
+  console.log('-'.repeat(40));
+}
+
+function wrapComponent(body, props = '{}', defaultProps = '{}') {
   return `
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class MyComponent extends React.Component {
+class MyComponent extends React.Component {
 /* eslint no-empty-function: 0, class-methods-use-this: 0 */
 ${body}
 }
+MyComponent.propTypes = ${props};
+MyComponent.defaultProps = ${defaultProps};
+export default MyComponent;
 `;
 }
 
@@ -41,16 +53,34 @@ test('validate react prop order', (t) => {
 
   t.test('passes a good component', (t) => {
     t.plan(3);
-    const result = lint(wrapComponent(`
+    const component = wrapComponent(`
   componentWillMount() {}
-  componentDidMount() {}
-  setFoo() {}
-  getFoo() {}
-  setBar() {}
-  someMethod() {}
-  renderDogs() {}
-  render() { return <div />; }`));
 
+  componentDidMount() {}
+
+  setFoo() {}
+
+  getFoo() {}
+
+  setBar() {}
+
+  someMethod() {}
+
+  renderDogs() {}
+
+  render() {
+    return (
+      <div>
+        <input type="text" />
+        <button disabled={this.props.isEnabled}>Button</button>
+      </div>
+    );
+  }`,
+    '{ isEnabled: PropTypes.bool }',
+    '{ isEnabled: false }');
+    const result = lint(component);
+
+    logError(result);
     t.notOk(result.warningCount, 'no warnings');
     t.notOk(result.errorCount, 'no errors');
     t.deepEquals(result.messages, [], 'no messages in results');
@@ -77,12 +107,19 @@ test('validate react prop order', (t) => {
     t.plan(2);
     const result = lint(wrapComponent(`
   componentWillMount() {}
+
   componentDidMount() {}
+
   someMethod() {}
+
   setFoo() {}
+
   getFoo() {}
+
   setBar() {}
+
   renderDogs() {}
+
   render() { return <div />; }
 `));
 

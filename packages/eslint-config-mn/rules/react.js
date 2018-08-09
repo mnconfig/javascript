@@ -330,6 +330,60 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/no-redundant-should-component-update.md
     // TODO: enable, semver-major
     'react/no-redundant-should-component-update': 'off',
+
+    // Enforces consistent naming for boolean props
+    // TODO: Discuss with team
+    'react/boolean-prop-naming': 'warn',
+
+    // Prevent usage of button elements without an explicit type attribute
+    'react/button-has-type': 'off',
+
+    // Validate JSX maximum depth
+    'react/jsx-max-depth': 'off',
+
+    // One JSX Element Per Line
+    // This option limits every line in JSX to one expression each.
+    // TODO Discuss with team
+    'react/jsx-one-expression-per-line': 'off',
+
+    // Enforce or disallow spaces inside of curly braces in JSX attributes and expressions.
+    'react/jsx-child-element-spacing': 'off',
+
+    // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children.
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
+
+    // Disallow multiple spaces between inline JSX props
+    'react/jsx-props-no-multi-spaces': 'error',
+
+    // Enforce defaultProps declarations alphabetical sorting
+    'react/jsx-sort-default-props': 'off',
+
+    // Enforce consistent usage of destructuring assignment of props, state, and context
+    'react/destructuring-assignment': 'off',
+
+    // Forbid certain props on DOM Nodes
+    // his rule prevents passing of props to elements. This rule only applies to DOM Nodes
+    // and not Components
+    // TODO Discuss with team
+    'react/forbid-dom-props': 'off',
+
+    // Prevent using this.state within a this.setState
+    // TODO Discuss with team
+    'react/no-access-state-in-setstate': 'off',
+
+    // Prevent `this` from being used in stateless functional components
+    'react/no-this-in-sfc': 'error',
+
+    // Prevents common typos
+    // Ensure no casing typos were made declaring static class properties and lifecycle methods.
+    'react/no-typos': 'error',
+
+    // Prevent usage of `UNSAFE_` methods
+    // TODO Discuss with team
+    'react/no-unsafe': 'error',
+
+    // Prevent definitions of unused state
+    'react/no-unused-state': 'error',
   },
 
   settings: {
