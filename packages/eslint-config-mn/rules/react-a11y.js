@@ -32,10 +32,6 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
     'jsx-a11y/aria-unsupported-elements': 'error',
 
-    // disallow href "#"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': ['error', { components: ['a'] }],
-
     // Enforce that all elements that require alternative text have meaningful information
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
     'jsx-a11y/alt-text': ['error', {
@@ -53,6 +49,16 @@ module.exports = {
     // require that JSX labels use "htmlFor"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
     'jsx-a11y/label-has-for': ['error', { components: ['label'] }],
+
+    // Enforce that a label tag has a text label and an associated control.
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/b800f40a2a69ad48015ae9226fbe879f946757ed/docs/rules/label-has-associated-control.md
+    'jsx-a11y/label-has-associated-control': ['error', {
+      labelComponents: [],
+      labelAttributes: [],
+      controlComponents: [],
+      assert: 'both',
+      depth: 25
+    }],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
     // TODO: evaluate

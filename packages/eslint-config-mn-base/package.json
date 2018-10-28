@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mn-base",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mn's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -47,22 +47,22 @@
   },
   "homepage": "https://github.com/mnconfig/javascript",
   "devDependencies": {
-    "babel-preset-airbnb": "^2.4.0",
-    "babel-tape-runner": "^2.0.1",
+    "babel-preset-airbnb": "^3.0.1",
+    "babel-tape-runner": "^3.0.0",
     "editorconfig-tools": "^0.1.1",
-    "eslint": "^4.3.0",
-    "eslint-find-rules": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^5.8.0",
+    "eslint-find-rules": "^3.3.1",
+    "eslint-plugin-import": "^2.14.0",
     "in-publish": "^2.0.0",
-    "safe-publish-latest": "^1.1.1",
-    "tape": "^4.7.0"
+    "safe-publish-latest": "^1.1.2",
+    "tape": "^4.9.1"
   },
   "peerDependencies": {
-    "eslint": "^5.3.0",
-    "eslint-plugin-import": "^2.13.0"
+    "eslint": "^5.8.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 6"
   },
   "dependencies": {
     "eslint-restricted-globals": "^0.1.1"

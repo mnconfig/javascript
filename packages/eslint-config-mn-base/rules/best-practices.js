@@ -294,5 +294,17 @@ module.exports = {
     // It will not check empty lines before the first member and after the last member,
     // since that is already taken care of by padded-blocks.
     'lines-between-class-members': 'warn',
+    // enforce a maximum function length
+    // https://eslint.org/docs/rules/max-lines-per-function
+    'max-lines-per-function': 'off',
+    // disallow using an async function as a Promise executor
+    // https://eslint.org/docs/rules/no-async-promise-executor
+    'no-async-promise-executor': 'error',
+    // Disallow characters which are made with multiple code points in character class syntax
+    // https://eslint.org/docs/rules/no-misleading-character-class
+    'no-misleading-character-class': 'off',
+    // Enforce the use of u flag on RegExp
+    // https://eslint.org/docs/rules/require-unicode-regexp
+    'require-unicode-regexp': 'off',
   }
 };

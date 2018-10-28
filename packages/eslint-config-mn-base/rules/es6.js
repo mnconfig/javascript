@@ -170,6 +170,15 @@ module.exports = {
 
     // enforce spacing around the * in yield* expressions
     // http://eslint.org/docs/rules/yield-star-spacing
-    'yield-star-spacing': ['error', 'after']
+    'yield-star-spacing': ['error', 'after'],
+    // A file may not contain more than the specified number of classes
+    // https://eslint.org/docs/5.0.0/rules/max-classes-per-file
+    'max-classes-per-file': ['error', 1],
+    // Prefer use of an object spread over Object.assign
+    // https://eslint.org/docs/rules/prefer-object-spread
+    'prefer-object-spread': 'error',
+    // Disallow assignments that can lead to race conditions due to usage of await or yield
+    // https://eslint.org/docs/rules/require-atomic-updates
+    'require-atomic-updates': 'error'
   }
 };
